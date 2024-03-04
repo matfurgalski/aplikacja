@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('statystyki', function (Blueprint $table) {
+            $table->id();
+            $table->string('rodzaj');
+            $table->decimal('kwota', 10, 2);
+            $table->string('notatki', 1500);
+            $table->unsignedBigInteger('users_id');  
+            $table->foreign('users_id')->references('id')->on('users'); 
+            $table->unsignedBigInteger('nieruchomosci_id');  
+            $table->foreign('nieruchomosci_id')->references('id')->on('nieruchomosci')->cascadeOnDelete(); 
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('statystyki');
+    }
+};
