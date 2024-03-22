@@ -16,6 +16,17 @@
        
         </div>
         @endcan
+        @can('isWlasciciel')
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <a type="button" href="/monitor/wykresy" class="btn btn-sm btn-outline-secondary">Wykresy zużycia mediów</a>
+            
+          </div>
+       
+        </div>
+        @endcan
+
+        
       </div>
 
       <div class="conteiner">

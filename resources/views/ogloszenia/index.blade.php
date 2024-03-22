@@ -42,6 +42,9 @@
       <td>
         <button class="btn btn-danger btn-sm delete" data-id="{{$ogloszenie->id}}"> X </button>
         <a href=" {{route('ogloszenia.podgladOgloszenia', $ogloszenie->id)}}"class="btn btn-primary btn-sm delete"> <span data-feather="eye"></span> Podgląd</a>
+        <a href=" {{route('ogloszenia.edit', $ogloszenie->id)}}"> 
+        <button class="btn btn-success btn-sm " > Edytuj ogłoszenie </button>
+      </a>
       </td>
     </tr>
     @endforeach

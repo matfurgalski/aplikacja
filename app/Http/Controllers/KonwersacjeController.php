@@ -62,6 +62,10 @@ class KonwersacjeController extends Controller
         ->orderBy('konwersacje.id', 'desc')  
         ->get() ;
 
+       
+
+        // kod (linie 71-81) wychwytuje ostatnie wiadomości dla każdej konwersacji.   
+
         $exist[] = 0;
         $test[] = null;
 
@@ -72,11 +76,10 @@ class KonwersacjeController extends Controller
             }
         }
 
-         
-    
-         unset($test[0]);
-       
+        // unset usuwa pierwszy pusty obiekt powstający w czasie tworzenia listy $test[]
 
+        unset($test[0]);
+       
 
       
      

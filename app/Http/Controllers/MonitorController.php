@@ -12,6 +12,7 @@ use App\Models\Nieruchomosci;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Data;
 
 class MonitorController extends Controller
 {
@@ -56,6 +57,71 @@ class MonitorController extends Controller
         ]);
     }
 
+    
+         /**
+     * Display a listing of the resource.
+     *
+     * @return View
+     */
+    public function wykresy(): View
+    {
+      
+
+
+        $monitor = DB::table('nieruchomosci')
+        ->join('monitor', 'monitor.nieruchomosc_id', '=', 'nieruchomosci.id')
+        ->where('users_id', '=', Auth::user()->id)
+        ->get();
+     
+      
+       
+
+        $data = [];
+        $exist= [];
+
+        $miesiac = [];
+        $prad = [];
+        $gaz = [];
+        $woda = [];
+
+        
+        foreach ($monitor as $zuzycie){
+
+            if (!in_array($zuzycie->ulica, $exist)){
+            array_push($exist, $zuzycie->ulica);
+
+            $nieruchomosc = $zuzycie->ulica;
+       
+
+            $newObject = (object)['nieruchomosc' => $nieruchomosc, 'miesiac' => $miesiac,'prad'=> $prad, 'gaz'=> $gaz,'woda'=> $woda]; 
+            array_push($data, $newObject);
+            }
+        }
+
+  
+        foreach ($data as $dane){
+        foreach ($monitor as $zuzycie){
+
+           
+            if($dane->nieruchomosc == $zuzycie->ulica){
+
+                array_push($dane->miesiac, substr($zuzycie->created_at,0,10));
+                array_push($dane->woda, $zuzycie->woda);
+                array_push($dane->prad, $zuzycie->prad);
+                array_push($dane->gaz, $zuzycie->gaz);
+            }
+        }
+
+        }
+
+
+
+
+       
+        return view('monitor.wykresy',[
+            'monitor' => $data
+        ]);
+    }
      /**
      * Show the form for creating a new resource.
      *

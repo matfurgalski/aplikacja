@@ -46,6 +46,8 @@ Route::post('/ogloszenia/{id}/dodajUlubione', [App\Http\Controllers\OgloszeniaCo
 Route::get('/wszystkieOgloszenia', [App\Http\Controllers\OgloszeniaController::class, 'wszystkieOgloszenia'])->name('ogloszenia.wszystkieOgloszenia')->middleware('auth');
 Route::post('/ogloszenia/{id}/rezerwacja', [App\Http\Controllers\OgloszeniaController::class, 'rezerwacja'])->name('ogloszenia.rezerwacja')->middleware('auth');
 Route::post('/ogloszenia/{id}/anulujRezerwacje', [App\Http\Controllers\OgloszeniaController::class, 'anulujRezerwacje'])->name('ogloszenia.anulujRezerwacje')->middleware('auth');
+Route::get('/ogloszenia/{id}/edit', [App\Http\Controllers\OgloszeniaController::class, 'edit'])->name('ogloszenia.edit')->middleware('can:isWlasciciel');
+Route::post('/ogloszenia/{id}', [App\Http\Controllers\OgloszeniaController::class, 'update'])->name('ogloszenia.update')->middleware('can:isWlasciciel');
 
 Route::get('/ulubione', [App\Http\Controllers\UlubioneController::class, 'index'])->name('ulubione.index')->middleware('auth');
 Route::delete('/ulubione/{id}', [App\Http\Controllers\UlubioneController::class, 'destroy'])->name('ulubione.destroy')->middleware('auth');
@@ -69,6 +71,7 @@ Route::delete('/konwersacje/{id}', [App\Http\Controllers\KonwersacjeController::
 
 
 Route::get('/monitor', [App\Http\Controllers\MonitorController::class, 'index'])->name('monitor.index')->middleware('auth');
+Route::get('/monitor/wykresy', [App\Http\Controllers\MonitorController::class, 'wykresy'])->name('monitor.wykresy')->middleware('auth');
 Route::get('/monitor/dodajZuzycie', [App\Http\Controllers\MonitorController::class, 'create'])->name('monitor.create')->middleware('auth');
 Route::post('/moniotr', [App\Http\Controllers\MonitorController::class, 'store'])->name('monitor.store')->middleware('auth');
 Route::delete('/monitor/{id}', [App\Http\Controllers\MonitorController::class, 'destroy'])->name('monitor.destroy')->middleware('auth');

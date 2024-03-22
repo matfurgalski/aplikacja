@@ -78,7 +78,7 @@
         <li><a href="/" class="nav-link px-2 link-secondary">Strona Główna</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Baza Wiedzy</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Kontakt</a></li>
-        <li><a href="/home" class="nav-link px-2 link-dark">Aplikacja</a></li>
+       
       
       </ul>
 

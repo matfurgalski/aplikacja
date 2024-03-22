@@ -90,15 +90,80 @@ class OgloszeniaController extends Controller
         //
     }
 
-    /**
+       /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ogloszenia  $ogloszenia
+     * @param  \App\Models\Ogloszenia  $nieruchomosci
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ogloszenia $ogloszenia)
+    public function edit(Ogloszenia $id)
     {
-        //
+        $nieruchomosci = DB::table('nieruchomosci')
+        ->where('users_id', '=', Auth::user()->id)
+        ->get();
+
+        $ogloszenia = DB::table('nieruchomosci')
+        ->join('ogloszenia', 'nieruchomosci.id', '=', 'ogloszenia.nieruchomosci_id')
+        ->where('ogloszenia.id', '=', $id->id)
+        ->first();
+
+        $zdjecia = DB::table('zdjecia')
+        ->join('ogloszenia_zdjecia', 'zdjecia.id', '=', 'ogloszenia_zdjecia.zdjecia_id')
+        ->where('ogloszenia_id', '=', $id->id)
+        ->get();
+
+
+        echo "<pre>";
+        print_r($zdjecia);
+        echo "</pre>";
+        return view('ogloszenia.edit',[
+            'ogloszenia' => $ogloszenia,
+            'nieruchomosci' => $nieruchomosci,
+            'zdjecia' => $zdjecia,
+        ]);
+    }
+
+       /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Ogloszenia  $ogloszenia
+     * @return \Illuminate\Http\Response
+     * 
+     */
+    public function update(Request $request, Ogloszenia $id): RedirectResponse
+    {
+     
+
+       $id->fill($request->all());
+ 
+       $id->save();
+
+       if(!empty($request->file('plik'))){
+
+        $zdjecia = DB::table('zdjecia')
+        ->join('ogloszenia_zdjecia', 'zdjecia.id', '=', 'ogloszenia_zdjecia.zdjecia_id')
+        ->where('ogloszenia_id', '=', $id->id)
+        ->get();
+
+        foreach($zdjecia as $zdjecia){
+            if(Storage::disk('public')->exists($zdjecia->file_path)){
+                Storage::disk('public')->delete($zdjecia->file_path);   
+                 }
+            
+                }
+                
+                $id->zdjecia()->delete();
+
+        foreach($request->file('plik') as $key => $file){
+             $zdjecia = new Zdjecia();
+             $zdjecia->file_path = $file->store('zdjecia','public');       
+             $zdjecia->save();
+             $id->zdjecia()->attach($zdjecia);
+        }}else{}
+
+       return redirect(route('ogloszenia.index'));
+
     }
 
     /**
