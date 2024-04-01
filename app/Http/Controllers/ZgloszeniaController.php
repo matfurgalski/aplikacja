@@ -84,40 +84,6 @@ class ZgloszeniaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Zgloszenia  $zgloszenia
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Zgloszenia $zgloszenia)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Zgloszenia  $zgloszenia
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Zgloszenia $zgloszenia)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Zgloszenia  $zgloszenia
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Zgloszenia $zgloszenia)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Zgloszenia  $zgloszenia

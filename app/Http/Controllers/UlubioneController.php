@@ -38,51 +38,6 @@ class UlubioneController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ulubione  $ulubione
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ulubione $ulubione)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ulubione  $ulubione
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ulubione $ulubione)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ulubione  $ulubione
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Ulubione $ulubione)
-    {
-        //
-    }
-
    /**
      * Remove the specified resource from storage.
      *

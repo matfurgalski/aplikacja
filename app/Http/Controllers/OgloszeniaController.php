@@ -79,16 +79,6 @@ class OgloszeniaController extends Controller
         return redirect(route('ogloszenia.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ogloszenia  $ogloszenia
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ogloszenia $ogloszenia)
-    {
-        //
-    }
 
        /**
      * Show the form for editing the specified resource.

@@ -70,39 +70,6 @@ class StatystykiController extends Controller
         return redirect(route('statystyki.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Statystyki  $statystyki
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Statystyki $statystyki)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Statystyki  $statystyki
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Statystyki $statystyki)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Statystyki  $statystyki
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Statystyki $statystyki)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

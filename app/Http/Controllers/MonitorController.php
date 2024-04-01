@@ -115,9 +115,6 @@ class MonitorController extends Controller
         }
 
 
-
-
-       
         return view('monitor.wykresy',[
             'monitor' => $data
         ]);
@@ -148,9 +145,6 @@ class MonitorController extends Controller
     public function store(Request $request): RedirectResponse
     {
         
-       
-         
-
         $monitor = new Monitor($request->all());
         $monitor->user_id = Auth::user()->id;
         $monitor->nieruchomosc_id = DB::table('nieruchomosci')->select('id')->where('wynajmujacy_id', Auth::user()->id)->first()->id;
@@ -161,39 +155,6 @@ class MonitorController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Monitor  $monitor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Monitor $monitor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Monitor  $monitor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Monitor $monitor)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Monitor  $monitor
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Monitor $monitor)
-    {
-        //
-    }
 
    /**
      * Remove the specified resource from storage.

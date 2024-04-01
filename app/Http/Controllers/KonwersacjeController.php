@@ -79,14 +79,9 @@ class KonwersacjeController extends Controller
         // unset usuwa pierwszy pusty obiekt powstający w czasie tworzenia listy $test[]
 
         unset($test[0]);
-       
 
-      
-     
        }
        
-
-      
 
         return view('konwersacje.index',[
             'konwersacje' => $test,
@@ -141,40 +136,6 @@ class KonwersacjeController extends Controller
 
      
         return redirect(route('konwersacje.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Konwersacje  $konwersacje
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Konwersacje $konwersacje)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Konwersacje  $konwersacje
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Konwersacje $konwersacje)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Konwersacje  $konwersacje
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Konwersacje $konwersacje)
-    {
-        //
     }
 
   

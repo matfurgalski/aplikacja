@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 
 
-
-
 class NieruchomosciController extends Controller
 {
     
@@ -67,16 +65,6 @@ class NieruchomosciController extends Controller
         return redirect(route('nieruchomosci.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Nieruchomosci  $nieruchomosci
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Nieruchomosci $nieruchomosci)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
