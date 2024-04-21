@@ -2,7 +2,7 @@
 
 @section('content')
 
-@foreach($ogloszenia as $ogloszenie)
+@forelse($ogloszenia as $ogloszenie)
 <div class="row justify-content-center mb-3">
           <div class="col-md-12">
             <div class="card shadow-0 border rounded-3">
@@ -65,9 +65,9 @@
                     @endif
                     <small class="text-muted">data dodania: {{$ogloszenie->created_at}}</small>
                     
-                    <div class="mt-4">
+                    <div class="mt-4 item">
                     <a href=" {{route('ogloszenia.podgladOgloszenia', $ogloszenie->id)}}"class="btn btn-primary shadow-0"> <span data-feather="eye"></span> Podgląd</a>
-                    <button class="btn btn-light border border-secondary py-2 icon-hover px-3 ulubione" data-id="{{$ogloszenie->id}}">  <i class="me-1 fa fa-heart fa-lg"></i> Dodaj do ulubionych </button>
+                    <button id="button-ulubione"dusk="ulubione-button"class="btn btn-light border border-secondary py-2 icon-hover px-3 ulubione" data-id="{{$ogloszenie->id}}">  <i class="me-1 fa fa-heart fa-lg"></i> Dodaj do ulubionych </button>
 
                     </div>
                   </div>
@@ -76,8 +76,10 @@
             </div>
           </div>        
         </div>
+        @empty
+        <div>Brak ogłoszeń</div>
 
-        @endforeach
+        @endforelse
 
 
    

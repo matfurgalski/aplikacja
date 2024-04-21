@@ -22,14 +22,21 @@
          
         
         </div> -->
-       @foreach ($monitor as $z)
+       @forelse ($monitor as $z)
         <div class="chart-container" style="position: relative; height:40vh; width:80vw">
       
         <canvas id="myChart{{$z->nieruchomosc}}"></canvas>
   
   
   </div>
-  @endforeach
+  @empty
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+      
+    <div>Nie znaleziono wykresów</div>
+
+
+</div>
+  @endforelse
       </div>
  
 

@@ -23,6 +23,7 @@ class Ogloszenia extends Model
         'tytul',
         'opis',
         'nieruchomosci_id',
+        'wlasciciel_id',
         'cena',
     ];
 

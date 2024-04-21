@@ -17,8 +17,7 @@ class Ulubione extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id',
-        'user_id',
+        'users_id',
         'ogloszenia_id'
     ];
 

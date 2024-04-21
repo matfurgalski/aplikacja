@@ -36,7 +36,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($nieruchomosci as $nieruchomosc)
+    @forelse($nieruchomosci as $nieruchomosc)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$nieruchomosc->nazwa}}</td>
@@ -50,11 +50,11 @@
       <td>
 
      
-        <button class="btn btn-danger btn-sm delete" data-id="{{$nieruchomosc->nieruchomosci_id}}"> <svg class="bi" width="18" height="18"><use xlink:href="#trash"/></svg></button>
+        <button id="button-id" class="btn btn-danger btn-sm delete" data-id="{{$nieruchomosc->nieruchomosci_id}}"> <svg class="bi" width="18" height="18"><use xlink:href="#trash"/></svg></button>
 
         
         <a href=" {{route('nieruchomosci.dodajWynajmujacego', $nieruchomosc->nieruchomosci_id)}}"class="btn btn-primary btn-sm "> 
-        <button class="btn btn-primary btn-sm " > Wpisz wynajmujacego </button>
+        <button id="button-wpisz-wynajmujacego" class="btn btn-primary btn-sm " > Wpisz wynajmujacego </button>
       </a>
    
       <a class="btn btn-warning btn-sm " >
@@ -67,7 +67,12 @@
 
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono nieruchomości')}}</td>
+    </tr>
+    @endforelse
   </tbody>
 </table>
 </div>

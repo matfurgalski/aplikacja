@@ -30,7 +30,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($ulubione as $ulubione)
+    @forelse($ulubione as $ulubione)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$ulubione->tytul}}</td>
@@ -44,7 +44,13 @@
         <a href=" {{route('ogloszenia.podgladOgloszenia', $ulubione->ogloszenia_id)}}"class="btn btn-primary shadow-0"> <span data-feather="eye"></span> Przejdź do ogłoszenia</a>
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono ulubionego ogłoszenia')}}</td>
+  
+    </tr>
+    @endforelse
   </tbody>
 </table>
 </div>

@@ -33,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($statystyki as $statystyki)
+    @forelse($statystyki as $statystyki)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$statystyki->rodzaj}}</td>
@@ -42,10 +42,16 @@
       <td>{{$statystyki->ulica}} {{$statystyki->miasto}}</td>
       <td>{{$statystyki->created_at}}</td>
       <td>
-        <button class="btn btn-danger btn-sm delete" data-id="{{$statystyki->id}}"> X </button>
+        <button id="button-id" class="btn btn-danger btn-sm delete" data-id="{{$statystyki->id}}"> X </button>
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono statystyk')}}</td>
+    
+    </tr>
+    @endforelse
   </tbody>
 </table>
 </div>

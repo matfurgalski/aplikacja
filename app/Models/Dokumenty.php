@@ -16,7 +16,8 @@ class Dokumenty extends Model
   */
  protected $fillable = [
      'nazwa' ,
-     'file_path'    
+     'file_path',
+     'users_id'  
  ];
 
  public function users(): HasMany

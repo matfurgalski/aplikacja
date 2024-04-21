@@ -76,8 +76,8 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="nav-link px-2 link-secondary">Strona Główna</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Baza Wiedzy</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Kontakt</a></li>
+        <li><button onclick="scrolldivBazaWiedzy()" class="nav-link px-2 link-dark">Baza Wiedzy</button></li>
+        <li><button  onclick="scrolldivKontakt()" class="nav-link px-2 link-dark">Kontakt</button></li>
        
       
       </ul>
@@ -105,10 +105,40 @@
     </div>
   </div>
 
+  <div id="kontakt"class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Kontakt</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Mateusz Furgalski <br> mateusz.furgalski@gmail.com</p>
+    </div>
+ 
+  </div>
+
+  <div id="bazaWiedzy"class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Baza Wiedzy</h1>
+    <div class="col-lg-6 mx-auto">
+      <a href="https://powroty.gov.pl/-/wynajem-mieszkania-porady-dla-najemcow" class="lead mb-4"> WYNAJEM MIESZKANIA - PORADY DLA NAJEMCÓW</a><br>
+      <a href="https://www.morizon.pl/blog/jak-bezpiecznie-wynajac-mieszkanie-poradnik/" class="lead mb-4"> Jak bezpiecznie wynająć mieszkanie?</a><br>
+      <a href="https://pewnylokal.pl/mieszkanie-na-wynajem" class="lead mb-4"> Wynajem mieszkania - jakie pytania zadać, żeby wybrać je dobrze?</a><br>
+      <a href="https://businessinsider.com.pl/wiadomosci/lokator-nie-chce-placic-za-wynajem-ekspert-radzi-co-zrobic/z7hprl2" class="lead mb-4"> Wynajem mieszkania - jak się zabezpieczyć przed nieuczciwymi lokatorami?</a><br>
+      <a href="https://rendin.pl/articles/jak-wynajac-mieszkanie-formalnosci-w-wynajmie" class="lead mb-4"> Jak wynająć mieszkanie? Najważniejsze formalności krok po kroku</a><br>
+    </div>
+ 
+  </div>
+
 </main>
 
 
-  
+<script>
+      function scrolldivKontakt() {
+                var elem = document.getElementById("kontakt");
+                elem.scrollIntoView();
+            }
+      function scrolldivBazaWiedzy() {
+                var elem = document.getElementById("bazaWiedzy");
+                elem.scrollIntoView();
+            }
+</script>
+
     @vite(['resources/js/app.js'])
       
   </body>

@@ -34,7 +34,7 @@
   <tbody>
 
  
-    @foreach($konwersacje as $konwersacja)
+    @forelse($konwersacje as $konwersacja)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$konwersacja->temat}}</td>
@@ -46,7 +46,13 @@
         <a href=" {{route('konwersacje.podgladKonwersacji', $konwersacja->konwersacje_id)}}"class="btn btn-primary btn-sm "> <span data-feather="eye"></span> Odpowiedz</a>
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono konwersacji')}}</td>
+  
+    </tr>
+    @endforelse
   
 
 

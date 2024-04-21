@@ -51,7 +51,7 @@
                                     <option selected>Wybierz...</option>
 
                                     @foreach($nieruchomosci as $nieruchomosc)
-                                    <option value="{{$nieruchomosc->id}}">{{$nieruchomosc->ulica}} {{$nieruchomosc->miasto}}</option>
+                                    <option id="opcje" value="{{$nieruchomosc->id}}">{{$nieruchomosc->ulica}} {{$nieruchomosc->miasto}}</option>
                                     @endforeach
                                 </select>
                             </div>

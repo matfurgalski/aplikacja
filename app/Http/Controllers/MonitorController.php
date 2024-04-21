@@ -12,7 +12,7 @@ use App\Models\Nieruchomosci;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Data;
+
 
 class MonitorController extends Controller
 {
@@ -146,6 +146,7 @@ class MonitorController extends Controller
     {
         
         $monitor = new Monitor($request->all());
+ 
         $monitor->user_id = Auth::user()->id;
         $monitor->nieruchomosc_id = DB::table('nieruchomosci')->select('id')->where('wynajmujacy_id', Auth::user()->id)->first()->id;
         $monitor->save();

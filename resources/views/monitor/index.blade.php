@@ -48,7 +48,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($monitor as $monitor)
+    @forelse($monitor as $monitor)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$monitor->woda}} m3</td>
@@ -64,7 +64,13 @@
       </td>
       @endcan
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono zużycia mediów')}}</td>
+   
+    </tr>
+    @endforelse
   </tbody>
 </table>
 </div>

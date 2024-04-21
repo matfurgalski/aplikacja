@@ -46,10 +46,6 @@ class UlubioneController extends Controller
      */
     public function destroy(Ulubione $id) : JsonResponse
     {
-       
-        echo "<pre>";
-        print_r($id);
-        echo "</pre>";
 
       //  Ulubione::find($id)->delete();
       $id->delete();

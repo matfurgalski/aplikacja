@@ -31,17 +31,24 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($dokumenty as $dokument)
+    @forelse($dokumenty as $dokument)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$dokument->nazwa}}</td>
       <td>{{$dokument->created_at}}</td>   
       <td>
-        <button class="btn btn-danger btn-sm delete" data-id="{{$dokument->id}}"> X </button>
+        <button id="button-id"  class="btn btn-danger btn-sm delete" data-id="{{$dokument->id}}">{{ __('X') }}</button>
         <a href=" {{route('dokumenty.fileDownload', $dokument->id)}}"class="btn btn-primary btn-sm delete"> <span data-feather="download"></span> Pobierz </a>
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono dokumentów')}}</td>
+     
+     
+    </tr>
+    @endforelse
   </tbody>
 </table>
 </div>

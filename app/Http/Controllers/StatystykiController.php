@@ -64,9 +64,6 @@ class StatystykiController extends Controller
         $statystyki->users_id = Auth::user()->id; 
         $statystyki->save();
 
-        echo "<pre>";
-        print_r($statystyki);
-        echo "</pre>";
         return redirect(route('statystyki.index'));
     }
 

@@ -52,10 +52,26 @@ class DokumentyController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $storage = new Dokumenty($request->all());
-        $storage->users_id = Auth::user()->id;
-        $storage->file_path = $request->file('plik')->store('dokumenty');
+      //  $storage = new Dokumenty($request->all());
+        
+        // $storage->users_id = Auth::user()->id;
+        // $storage->file_path =  Storage::putFile('dokumenty', $request->file('plik')); 
+        // ddd($request->file('plik'));   
+                                                         
+        // $storage->save();
+   
+ 
+ 
+        $storage = new Dokumenty([
+            'nazwa' => $request->nazwa,
+            'users_id' =>Auth::user()->id,
+            'file_path' => $request->file('plik')->store('dokumenty')
+        ]);
+
+   
         $storage->save();
+
+
         return redirect(route('dokumenty.index'));
     }
 

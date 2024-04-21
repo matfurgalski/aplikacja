@@ -32,7 +32,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($ogloszenia as $ogloszenie)
+    @forelse($ogloszenia as $ogloszenie)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$ogloszenie->tytul}}</td>
@@ -40,14 +40,20 @@
       <td>{{$ogloszenie->ulica}}</td>
       <td>{{$ogloszenie->created_at}}</td>
       <td>
-        <button class="btn btn-danger btn-sm delete" data-id="{{$ogloszenie->id}}"> X </button>
+        <button id="button-id" class="btn btn-danger btn-sm delete" data-id="{{$ogloszenie->id}}"> X </button>
         <a href=" {{route('ogloszenia.podgladOgloszenia', $ogloszenie->id)}}"class="btn btn-primary btn-sm delete"> <span data-feather="eye"></span> Podgląd</a>
         <a href=" {{route('ogloszenia.edit', $ogloszenie->id)}}"> 
         <button class="btn btn-success btn-sm " > Edytuj ogłoszenie </button>
       </a>
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Brak ogłoszeń')}}</td>
+  
+    </tr>
+    @endforelse
   </tbody>
 </table>
 </div>

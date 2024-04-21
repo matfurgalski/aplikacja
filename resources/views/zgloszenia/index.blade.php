@@ -42,7 +42,7 @@
   <tbody>
 
 
-    @foreach($zgloszenia as $zgloszenia)
+    @forelse($zgloszenia as $zgloszenia)
     <tr>
       <th scope="row">{{$count++}}</th>
       <td>{{$zgloszenia->temat}}</td>
@@ -63,7 +63,13 @@
         @endcan
       </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <th scope="row"></th>
+      <td>{{__('Nie znaleziono zgłoszenia')}}</td>
+  
+    </tr>
+    @endforelse
 
 
   </tbody>

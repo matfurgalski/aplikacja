@@ -102,10 +102,6 @@ class OgloszeniaController extends Controller
         ->where('ogloszenia_id', '=', $id->id)
         ->get();
 
-
-        echo "<pre>";
-        print_r($zdjecia);
-        echo "</pre>";
         return view('ogloszenia.edit',[
             'ogloszenia' => $ogloszenia,
             'nieruchomosci' => $nieruchomosci,
